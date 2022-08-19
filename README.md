@@ -8,7 +8,7 @@ add into gradle dependencies
 
 ```kotlin
 dependencies {
-    implementation("com.sealwu:kscript-tools:1.0.0")
+    implementation("com.sealwu:kscript-tools:1.0.1")
 }
 ```
 
@@ -31,7 +31,7 @@ Documents      Library        Music          StudioProjects
 
 execute next kotlin code
 ```kotlin
-val date = "date".evalBash().sout()  //execute command `date` and get the command's output and set the content to date variable
+val date = "date".evalBash().getOrThrow  //execute command `date` and get the command's output and set the content to date variable
 println(date) //This will print Fri Aug 19 21:59:56 CEST 2022 on console
 val year = date.substringAfterLast(" ") // will get 2022 and assign to `year`
 println(year)
