@@ -4,6 +4,14 @@ Easy way to run shell command line in kotlin and other tools
 
 ## Usage
 
+### Used in [kscript](https://github.com/holgerbrandl/kscript):
+
+```kotlin
+@file:DependsOn("com.sealwu:kscript-tools:1.0.1")
+```
+
+### Used in normal kotlin gradle projects
+
 add into gradle dependencies
 
 ```kotlin
@@ -21,7 +29,7 @@ execute next kotlin code
 ```kotlin
 "ls".runCommand()
 ```
-output in console:
+output on console:
 ```shell
 Applications   Downloads      MavenDep       Pictures       iOSProjects
 Desktop        IdeaProjects   Movies         Public         scripts
