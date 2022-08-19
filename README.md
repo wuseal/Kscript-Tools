@@ -30,8 +30,8 @@ Documents      Library        Music          StudioProjects
 ### `evalBash`
 
 execute next kotlin code
-```
-val date = "date".evalBash()  //"execute command date and get the command's output and set the content to date variable"
+```kotlin
+val date = "date".evalBash()  //execute command `date` and get the command's output and set the content to date variable
 println(date) //This will print Fri Aug 19 21:59:56 CEST 2022 on console
 val year = date.substringLast(" ") // will get 2022 and assign to `year`
 ```
