@@ -34,9 +34,11 @@ execute next kotlin code
 val date = "date".evalBash()  //execute command `date` and get the command's output and set the content to date variable
 println(date) //This will print Fri Aug 19 21:59:56 CEST 2022 on console
 val year = date.substringAfterLast(" ") // will get 2022 and assign to `year`
+println(year)
 ```
 
 output on console:
 ```shell
 Fri Aug 19 21:59:56 CEST 2022
+2022
 ```
