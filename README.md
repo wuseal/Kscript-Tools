@@ -15,6 +15,7 @@ dependencies {
 ## APIs
 
 ### `runCommand`
+Run a bash/shell command in kotlin code, also can run multi-lines bash/shell scripts
 
 execute next kotlin code
 ```kotlin
@@ -28,6 +29,8 @@ Documents      Library        Music          StudioProjects
 ```
 
 ### `evalBash`
+Run a bash/shell command in kotlin code, also can run multi-lines bash/shell scripts,
+The different with `runCommand` is that it can get the command run standard output and error output
 
 execute next kotlin code
 ```kotlin
