@@ -6,7 +6,7 @@ data class BashResult(val exitCode: Int, val stdout: Iterable<String>, val stder
     fun sout() = stdout.joinToString("\n").trim()
 
     fun serr() = stderr.joinToString("\n").trim()
-    
+
     fun getOrNull(): String? {
         return if (exitCode == 0) sout() else null
     }
@@ -14,6 +14,11 @@ data class BashResult(val exitCode: Int, val stdout: Iterable<String>, val stder
     fun exceptionOrNull(): Throwable? = if (exitCode != 0) RuntimeException(serr()) else null
 
     fun getOrDefault(defaultValue: String) = if (exitCode == 0) sout() else defaultValue
+
+    fun getOrThrow(): String {
+        if (exitCode != 0) throw java.lang.RuntimeException(serr())
+        return sout()
+    }
 
     fun onFailure(action: BashResult.() -> Unit): BashResult {
         if (exitCode != 0) action()
@@ -101,7 +106,7 @@ fun Process.exceptionOrNull(): Throwable? =
 
 
 fun Process.onFailure(action: Process.() -> Unit): Process {
-    if ( exitValue()!= 0) action()
+    if (exitValue() != 0) action()
     return this
 }
 
