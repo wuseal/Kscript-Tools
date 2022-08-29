@@ -1,13 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.5.31"
     `maven-publish`
     signing
 }
 
 group = "com.sealwu"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -23,6 +23,11 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
 }
 
 java {

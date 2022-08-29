@@ -7,7 +7,7 @@ Easy way to run shell command line in kotlin and other tools
 ### Used in [kscript](https://github.com/holgerbrandl/kscript):
 
 ```kotlin
-@file:DependsOn("com.sealwu:kscript-tools:1.0.1")
+@file:DependsOn("com.sealwu:kscript-tools:1.0.2")
 ```
 
 ### Used in normal kotlin gradle projects
@@ -16,7 +16,7 @@ add into gradle dependencies
 
 ```kotlin
 dependencies {
-    implementation("com.sealwu:kscript-tools:1.0.1")
+    implementation("com.sealwu:kscript-tools:1.0.2")
 }
 ```
 
