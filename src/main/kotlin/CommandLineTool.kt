@@ -39,12 +39,13 @@ fun BashResult.throwIfError(): BashResult {
 }
 
 
-fun evalBash(cmd: String, showOutput: Boolean = false, wd: File? = null): BashResult {
+fun evalBash(cmd: String, showOutput: Boolean = false, wd: File? = null, env: Map<String, String>? = null): BashResult {
     return cmd.runCommand(0) {
         redirectOutput(ProcessBuilder.Redirect.PIPE)
         redirectInput(ProcessBuilder.Redirect.PIPE)
         redirectError(ProcessBuilder.Redirect.PIPE)
         wd?.let { directory(it) }
+        env?.let { environment().putAll(env) }
     }.run {
         val stdout = inputStream.reader().readLines()
         val stderr = errorStream.reader().readLines()
@@ -83,8 +84,8 @@ fun String.runCommand(
 }
 
 @JvmName("evalBashForKotlinStringExtension")
-fun String.evalBash(showOutput: Boolean = false, wd: File? = null): BashResult {
-    return evalBash(this, showOutput, wd)
+fun String.evalBash(showOutput: Boolean = false, wd: File? = null, env: Map<String, String>?): BashResult {
+    return evalBash(this, showOutput, wd, env)
 }
 
 fun Process.throwIfError(): Process {
