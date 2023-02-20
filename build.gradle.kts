@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.sealwu"
-version = "1.0.2"
+version = "1.0.22"
 
 repositories {
     mavenCentral()
