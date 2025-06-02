@@ -69,7 +69,13 @@ fun String.runCommand(
     timeoutUnit: TimeUnit = TimeUnit.MINUTES,
     processConfig: ProcessBuilder.() -> Unit = {}
 ): Process {
-    ProcessBuilder("/bin/bash", "-c", this).run {
+    val osName = System.getProperty("os.name")
+    val shell = if (osName != null && osName.contains("android", ignoreCase = true)) {
+        "/system/bin/sh"
+    } else {
+        "/bin/bash"
+    }
+    ProcessBuilder(shell, "-c", this).run {
         directory(File("."))
         inheritIO()
         processConfig()
